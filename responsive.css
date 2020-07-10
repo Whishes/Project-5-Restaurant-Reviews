@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+/* ====================== Media Queries: 480px ====================== */
+@media screen and (min-width: 480px) {
+  .filter-options {
+    display: block;
+  }
+  #neighborhoods-select {
+    margin: 0 20px 10px 0;
+  }
+}
+
+/* ====================== Media Queries: 600px ====================== */
+@media screen and (min-width: 600px) {
+  #restaurants-list {
+    padding: 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  #restaurants-list li {
+    padding: 0 30px 10px 30px;
+    margin: 15px;
+  }
+  #restaurant-container, #reviews-container {
+    padding: 20px 11px;
+    margin: auto;
+  }
+}
+
+/* ====================== Media Queries: 1150px ====================== */
+@media screen and (min-width: 1150px) {
+  #reviews-container {
+    max-width: 1150px;
+  }
+  #reviews-list {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  #reviews-list li {
+    width: 48%;
+  }
+  .inside #map-container {
+    background: blue none repeat scroll 0 0;
+    height: 90%;
+    position: fixed;
+    right: 0;
+    top: 80px;
+    width: 50%;
+  }
+}
