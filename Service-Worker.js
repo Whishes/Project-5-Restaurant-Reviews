@@ -1,6 +1,6 @@
-self.addEventListener('install', function (event) {
-	event.waitUntil(
-		caches.open('restaurant-static-v1').then(function (cache) {
+self.addEventListener('install', function (evt) {
+	evt.waitUntil(
+		caches.open(staticCacheName).then((cache) => {
 			return cache.addAll([
 				'/',
                 'css/styles.css',
@@ -18,6 +18,7 @@ self.addEventListener('install', function (event) {
 				'js/dbhelper.js',
 				'js/main.js',
 				'js/restaurant_info.js',
+				'js/swregister.js',
 				'index.html',
 				'restaurant.html'
 			]);
@@ -25,11 +26,11 @@ self.addEventListener('install', function (event) {
 	);
 });
 
-self.addEventListener('fetch', function (event) {
-	event.respondWith(
-		caches.match(event.request).then(function (response) {
-			if (response) return response;
-			return fetch(event.request);
+self.addEventListener('fetch', (evt) => {
+	evt.respondWith(
+		caches.match(evt.request)
+		.then((response) => {
+			return response || fetch(evt.request);
 		})
 	);
-});
+})
